@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center fs-1 fw-bold">
+      Registration
+    </div>
+    <div class="col-md-12">
+      <form [formGroup]="myForm">
+        <div class="row m-5">
+          <div class="col-6">
+            <label for="inputFN" class="fw-bold m-2">First Name</label>
+            <input type="text" class="form-control" placeholder="First name" formControlName="firstName">
+            <span class="error"
+              *ngIf="myForm.controls.firstName.touched && myForm.controls.firstName.invalid && myForm.controls.firstName.errors?.required">
+              First name can't black
+            </span>
+            <span class="error" *ngIf = "myForm.controls.firstName.touched && myForm.controls.firstName.invalid && myForm.controls.firstName.errors?.pattern"> Alphabets only allowed
+
+            </span>
+            <span class="error" *ngIf = "myForm.controls.firstName.touched && myForm.controls.firstName.invalid && myForm.controls.firstName.errors?.minlength"> Min: 3 Characters
+        
+            </span>
+            <span class="error" *ngIf = "myForm.controls.firstName.touched && myForm.controls.firstName.invalid && myForm.controls.firstName.errors?.maxlength"> Max: 20 Characters
+        
+            </span>
+          </div>
+          <div class="col-6">
+            <label for="inputLN" class="fw-bold m-2">Last Name</label>
+            <input type="text" class="form-control" placeholder="Last name" formControlName="lastName">
+            <span class="error"
+              *ngIf="myForm.controls.lastName.touched && myForm.controls.lastName.invalid && myForm.controls.lastName.errors?.required">
+              Last name can't black
+            </span>
+          </div>
+          <div class="col-6">
+            <label for="inputEmail" class="fw-bold m-2">Email</label>
+            <input type="text" class="form-control" placeholder="Email" formControlName="email">
+            <span class="error" *ngIf = "myForm.controls.email.touched && myForm.controls.email.invalid && myForm.controls.email.errors?.pattern">Give correct format
+            </span>
+          </div>
+          <div class="col-6">
+            <label for="inputNumber" class="fw-bold m-2">Mobile Number</label>
+            <input type="text" class="form-control" placeholder="Number" formControlName="number">
+            <span class="error" *ngIf = "myForm.controls.number.touched && myForm.controls.number.invalid && myForm.controls.number.errors?.pattern">Give correct format
+            </span>
+            <span class="error" *ngIf = "myForm.controls.number.touched && myForm.controls.number.invalid && myForm.controls.number.errors?.maxlength">Exceed 10 numbers
+            </span>
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-primary" style="width: 100%;" (click) = "startQuiz()">Submit and Start Quiz</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
